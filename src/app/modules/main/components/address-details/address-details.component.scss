@@ -1,0 +1,46 @@
+.address-details{
+  height: 100%;
+  &__sideBar{
+    &-content{
+      padding: 1rem 2rem;
+      div{
+        margin-bottom: 1rem;
+        .info{
+          margin-bottom: 0.5rem;
+
+        }
+      }
+    }
+  }
+  &__no-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    height: 80%;
+  }
+}
+
+::ng-deep{
+  p-sidebar{
+  .p-sidebar{
+    position: static;
+    width: inherit;
+    box-shadow: -2px 0px 10px 4px rgba(0, 0, 0, 0.04);
+  }
+  .p-sidebar .p-sidebar-content {
+   padding: 0;
+   height: 100%;
+  }
+  .p-sidebar .p-sidebar-header{
+    display: none;
+  }
+  .panel-header{
+    padding: 1rem 0.5rem;
+    h4{
+      cursor: pointer;
+    }
+  }
+}
+}

@@ -1,0 +1,62 @@
+<div class="loginPage">
+  <div class="loginPage__container">
+    <div class="h-100">
+      <div class="loginPage__container-form-container">
+        <div class="formContent">
+          <div class="sign-text">
+            <form class="form-signin" [formGroup]="loginForm">
+              <h1 class="h3 mb-3 fw-normal">Login into system</h1>
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  id="floatingInput"
+                  formControlName="username"
+                />
+                <div
+                  class="authenticate-error"
+                  *ngIf="submitted && loginForm.get('username')!.errors?.['required']"
+                >
+                  <span class="error-text"> username is required.</span>
+                </div>
+                <label for="floatingInput">Username</label>
+              </div>
+              <div class="form-floating mt-4">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  formControlName="password"
+                />
+                <div
+                  class="authenticate-error"
+                  *ngIf="submitted && loginForm.get('password')!.errors?.['required']"
+                >
+                  <span class="error-text">password is required.</span>
+                </div>
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div class="remember-sec">
+                <input type="checkbox" formControlName="rememberMe" />
+                <label> Rememeber me.</label>
+              </div>
+              <div class="authenticate-error">
+                <span class="error-text">{{ error?.message }}</span>
+              </div>
+            </form>
+          </div>
+          <div class="btns-container">
+            <button class="btn login-btn btn-xlg" (click)="authenticate()">
+              Login
+            </button>
+            <button
+              class="btn register-btn btn-xlg"
+              (click)="authenticate('new')"
+            >
+              register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
