@@ -1,0 +1,45 @@
+<div class="home-page">
+  <div class="row p-0 m-0">
+    <div class="home-page__search-container">
+      <div class="input-control">
+        <input pInputText id="address" value="46.660464, 24.72617" />
+        <div class="input-hint">
+          "Please type your coordinate here lon, lat"
+        </div>
+      </div>
+      <div class="search-btn">
+        <p-button
+          label="Find Address"
+          class="btnPrimary mx-2"
+          styleClass="p-button-sm"
+          (click)="onSearchByCoordinates()"
+        ></p-button>
+        <p-button
+          label="{{ showPanel ? 'Hide Location' : 'Show Location' }}"
+          class="btnPrimary mx-2"
+          styleClass="p-button-sm"
+          (click)="openSidebar()"
+        >
+        </p-button>
+      </div>
+    </div>
+  </div>
+  <div class="row home-page__mapSec p-0 m-0">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12"
+      *ngIf="showPanel">
+      <app-address-details
+        [displayPanel]="showPanel"
+        (panelClosed)="closeSideBar()"
+        [addressDetails]="address"
+      >
+      </app-address-details>
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"
+      [ngClass]="{
+        'col-xl-12 col-lg-12': !showPanel,
+        'col-xl-8 col-lg-8': showPanel
+      }">
+      <div id="map" class="map" (click)="getCoord($event)"></div>
+    </div>
+  </div>
+</div>

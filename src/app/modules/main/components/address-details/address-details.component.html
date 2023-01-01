@@ -1,0 +1,32 @@
+<div class="address-details">
+  <p-sidebar [(visible)]="displayPanel" [modal]="false" [position]="'left'">
+    <div class="panel-header">
+      <div class="d-flex align-items-center justify-content-between">
+        <em
+          id="dfb-side-bar-close-icon"
+          class="pi pi-times"
+          (click)="closeSideBar()"
+        ></em>
+      </div>
+    </div>
+    <div
+      class="address-details__sideBar-content"
+      *ngIf="addressDetails"
+    >
+      <div class="data">
+        <h5>Address</h5>
+        <div class="info">{{ addressDetails?.display_name }}</div>
+      </div>
+      <div class="data">
+        <h5>Coordinates</h5>
+        <div class="info">
+          Longtitude: {{ addressDetails?.lon }}
+        </div>
+        <div class="info">Latitude: {{ addressDetails?.lat }}</div>
+      </div>
+    </div>
+    <div class="address-details__no-data" *ngIf="!addressDetails">
+      <p>There is no information till now...</p>
+    </div>
+  </p-sidebar>
+</div>
